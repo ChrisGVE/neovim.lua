@@ -37,9 +37,6 @@ require("packer").startup({
 		-- Packer can manage itself
 		use("wbthomason/packer.nvim")
 		--
-		-- TMUX Integration
-		-- use('christoomey/vim-tmux-navigator')
-		--
 		-- Remember: open at the last position
 		use({
 			"vladdoster/remember.nvim",
@@ -96,6 +93,11 @@ require("packer").startup({
 			config = get_setup("nvim-colorizer"),
 		})
 		--
+		-- Indent blankline
+		use({
+			"lukas-reineke/indent-blankline.nvim",
+		})
+		--
 		-- File browser
 		use({
 			"kyazdani42/nvim-tree.lua",
@@ -110,6 +112,18 @@ require("packer").startup({
 			"akinsho/toggleterm.nvim",
 			config = get_setup("toggleterm"),
 		})
+		--
+		-- Zen mode
+		use({
+			"folke/zen-mode.nvim",
+			config = get_setup("zen"),
+		})
+		--
+		-- Twilight mode
+		use({
+			"folke/twilight.nvim",
+			config = get_setup("twilight"),
+		})
 
 		----------------------------------------
 		-- GIT SUPPORT
@@ -119,12 +133,12 @@ require("packer").startup({
 		use({
 			"tpope/vim-fugitive",
 		})
-        --
-        --
-        use({
-            "lewis6991/gitsigns.nvim",
-            config = get_setup("gitsigns"),
-        })
+		--
+		--
+		use({
+			"lewis6991/gitsigns.nvim",
+			config = get_setup("gitsigns"),
+		})
 
 		----------------------------------------
 		-- TELESCOPE
@@ -176,6 +190,22 @@ require("packer").startup({
 		--
 		-- UndoTree
 		use("mbbill/undotree")
+		--
+		-- Comment.nvim
+		use({
+			"numToStr/Comment.nvim",
+			config = get_setup("comment"),
+		})
+
+		----------------------------------------
+		-- MARKDOWN SUPPORT
+		----------------------------------------
+		--
+		-- Glow
+		use({
+			"ellisonleao/glow.nvim",
+			config = get_setup("glow"),
+		})
 
 		----------------------------------------
 		-- TREESITTER
@@ -249,6 +279,20 @@ require("packer").startup({
 			"mhartington/formatter.nvim",
 			config = get_setup("formatter"),
 		})
+
+		----------------------------------------
+		-- DEBUGGER SUPPORT
+		----------------------------------------
+		--
+		-- nvim-dab
+		use({
+			"mfussenegger/nvim-dap",
+		})
+		--
+		-- nvim-dab-python
+		-- use({
+		--     "mfussenegger/nvim-dab-python",
+		-- })
 
 		----------------------------------------
 		-- AUTOMATICALLY INSTALL PACKER
