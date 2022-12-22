@@ -18,7 +18,7 @@ vim.cmd([[ filetype plugin on ]])
 vim.cmd([[ filetype indent on ]])
 vim.opt.ls = 2
 vim.opt.incsearch = true
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 vim.opt.syntax = vim.opt.syntax + "on"
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

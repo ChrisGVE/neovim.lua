@@ -3,7 +3,7 @@
 ----------------------------------------
 
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { 'help', 'c', 'lua', 'cpp', 'markdown', 'latex', 'sql', 'rust', vim },
+    ensure_installed = { 'help', 'c', 'lua', 'cpp', 'markdown', 'latex', 'sql', 'rust', 'vim' },
     sync_install = false,
     auto_install = true,
 

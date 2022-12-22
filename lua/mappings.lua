@@ -26,8 +26,48 @@ wk.register({
     ['<C-h>'] = { function() ui.nav_file(1) end, "Navigate to harpoon file 1" },
     ['<C-t>'] = { function() ui.nav_file(2) end, "Navigate to harpoon file 2" },
     ['<C-n>'] = { function() ui.nav_file(3) end, "Navigate to harpoon file 3" },
-    ['<C-s>'] = { function() ui.nav_file(4) end, "Navigate to harpoon file 4" },
+--     ['<C-s>'] = { function() ui.nav_file(4) end, "Navigate to harpoon file 4" },
 })
+
+
+-- The primeagen mappings
+
+-- vim.keymap.set("n", "J", "mzJ`z")
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz")
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- vim.keymap.set("n", "n", "nzzzv")
+-- vim.keymap.set("n", "N", "Nzzzv")
+
+-- vim.keymap.set("n", "<leader>vwm", function()
+    -- require("vim-with-me").StartVimWithMe()
+-- end)
+-- vim.keymap.set("n", "<leader>svwm", function()
+    -- require("vim-with-me").StopVimWithMe()
+-- end)
+
+-- greatest remap ever
+-- vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- next greatest remap ever : asbjornHaland
+-- vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+-- vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+-- vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+
+-- This is going to get me cancelled
+-- vim.keymap.set("i", "<C-c>", "<Esc>")
+
+-- vim.keymap.set("n", "Q", "<nop>")
+-- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+-- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+-- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Visual mode simple shortcuts
 wk.register({
@@ -119,7 +159,7 @@ wk.register({
         D = { function()
             telescope.diagnostics()
         end, 'Diagnostics' },
-        f = { function()
+        r = { function()
             telescope.lsp_references()
         end, 'References' },
         i = { function()
@@ -134,7 +174,7 @@ wk.register({
         s = { function()
             telescope.lsp_document_symbols()
         end, 'Document symbols in current buffer' },
---        f = { '<cmd>Format<cr>', 'Code formatter' },
+        f = { '<cmd>Format<cr>', 'Code formatter' },
     },
 })
 
