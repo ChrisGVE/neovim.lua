@@ -302,15 +302,17 @@ require("packer").startup({
 		----------------------------------------
 		--
 		-- chatgpt
-		use({
-			"jackMort/ChatGPT.nvim",
-			config = require("chatgpt").setup({}),
-			requires = {
-				"MunifTanjim/nui.nvim",
-				"nvim-lua/plenary.nvim",
-				"nvim-telescope/telescope.nvim",
-			},
-		})
+		if os.getenv("OPENAI_API_KEY") ~= nil then -- if the KEY does not exist simply don't load the plugin
+			use({
+				"jackMort/ChatGPT.nvim",
+				config = require("chatgpt").setup({}),
+				requires = {
+					"MunifTanjim/nui.nvim",
+					"nvim-lua/plenary.nvim",
+					"nvim-telescope/telescope.nvim",
+				},
+			})
+		end
 
 		----------------------------------------
 		-- AUTOMATICALLY INSTALL PACKER
