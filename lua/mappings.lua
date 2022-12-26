@@ -16,6 +16,9 @@ local ui = require("harpoon.ui")
 -- Normal mode simple shortcuts
 wk.register({
 	["<leader>r"] = { ":set relativenumber!<cr>", "Relative number toggle" },
+	J = { "mzJ`z", "Join line + cursor fixed" },
+	["<C-d>"] = { "<C-d>zz", "Half down, line middle" },
+	["<C-u>"] = { "<C-u>zz", "Half up, line middle " },
 	["<S-cr>"] = { "O<esc>", "Insert blank line above" },
 	["<cr>"] = { "o<esc>", "Insert blank line below" },
 	["//"] = { ":noh<cr>", "Clear search results" },
@@ -48,7 +51,7 @@ wk.register({
 -- Visual mode simple shortcuts
 wk.register({
 	mode = "v",
-	J = { ":m '>|1<cr>gv=gv", "Move selected block down" },
+	J = { ":m '>+1<cr>gv=gv", "Move selected block down" },
 	K = { ":m '<-2<cr>gv=gv", "Move selected block up" },
 })
 
@@ -173,11 +176,12 @@ wk.register({
 })
 
 -- Code (in fact this section get only active on lsp attach)
---[[ wk.register({
+wk.register({
 	["<leader>c"] = {
 		name = "code",
+		f = { "<cmd>Format<cr>", "Code formatter" },
 	},
-}) ]]
+})
 
 -- Language
 wk.register({
@@ -193,9 +197,7 @@ wk.register({
 wk.register({
 	["<leader>h"] = {
 		name = "help",
-		t = { "<cmd>Telescope help_tags<cr>",
-			"Help tags",
-		},
+		t = { "<cmd>Telescope help_tags<cr>", "Help tags" },
 		b = { "<cmd>Telescope builtin<cr>", "Telescope buildins" },
 		w = { "<cmd>WhichKey<cr>", "Show all keybindings with Which-key" },
 	},
@@ -203,9 +205,6 @@ wk.register({
 
 -- The primeagen mappings
 
--- vim.keymap.set("n", "J", "mzJ`z")
--- vim.keymap.set("n", "<C-d>", "<C-d>zz")
--- vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- vim.keymap.set("n", "n", "nzzzv")
 -- vim.keymap.set("n", "N", "Nzzzv")
 

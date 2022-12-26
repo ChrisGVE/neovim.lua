@@ -155,7 +155,6 @@ lsp.on_attach(function(client, bufnr)
 				"<cmd>Telescope lsp_document_symbols<cr>",
 				"Document symbols in current buffer",
 			},
-			f = { "<cmd>Format<cr>", "Code formatter" },
 			K = {
 				function()
 					vim.lsp.buf.hover()
