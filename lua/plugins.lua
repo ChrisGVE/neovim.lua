@@ -295,6 +295,21 @@ require("packer").startup({
 		-- })
 
 		----------------------------------------
+		-- EXPERIMENTAL
+		----------------------------------------
+		--
+		-- chatgpt
+		use({
+			"jackMort/ChatGPT.nvim",
+			config = require("chatgpt").setup({}),
+			requires = {
+				"MunifTanjim/nui.nvim",
+				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope.nvim",
+			},
+		})
+
+		----------------------------------------
 		-- AUTOMATICALLY INSTALL PACKER
 		----------------------------------------
 		-- Automatically set up your configuration after cloning packer.nvim

@@ -39,7 +39,7 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.wildmenu = true
 vim.opt.wildmode = "full"
 vim.opt.termguicolors = true
-vim.opt.mouse = nil
+-- vim.opt.mouse = nil
 vim.opt.completeopt = "menu,menuone,noselect"
 
 -- FixCursorHold set update time
