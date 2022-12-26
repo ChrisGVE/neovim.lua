@@ -193,10 +193,24 @@ wk.register({
 
 -- Markdown
 wk.register({
-    ["<leader>m"] = {
-        name = "markdown",
-        v = { "<cmd>Glow<cr>", "View markdown"},
-    }
+	["<leader>m"] = {
+		name = "markdown",
+		v = { "<cmd>Glow<cr>", "View markdown" },
+	},
+})
+vim.g.simple_todo_map_keys = 0
+wk.register({
+	mode = { "n", "i", "v" },
+	["<leader>m"] = {
+		name = "markdown",
+		I = { "<Plug>(simple-todo-new-start-of-line)", "New todo (start of line)" },
+		i = { "<Plug>(simple-todo-new)", "New todo" },
+		o = { "<Plug>(simple-todo-below)", "New todo (below)" },
+		O = { "<Plug>(simple-todo-above)", "New todo (above)" },
+		s = { "<Plug>(simple-todo-switch)", "Switch todo" },
+		x = { "<Plug>(simple-todo-mark-as-done)", "Mark todo as done" },
+		X = { "<Plug>(simple-todo-mark-as-undone)", "Mark todo as undone" },
+	},
 })
 
 -- Git
@@ -313,5 +327,6 @@ wk.register({
 			"Help tags",
 		},
 		b = { "<cmd>Telescope builtin<cr>", "Telescope buildins" },
+        w = { "<cmd>WhichKey<cr>", "Show all keybindings with Which-key"},
 	},
 })

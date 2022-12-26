@@ -41,6 +41,7 @@ vim.opt.wildmode = "full"
 vim.opt.termguicolors = true
 -- vim.opt.mouse = nil
 vim.opt.completeopt = "menu,menuone,noselect"
+vim.g.timoutlen = 500
 
 -- FixCursorHold set update time
 vim.g.curshold_updatime = 1000

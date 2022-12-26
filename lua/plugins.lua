@@ -206,6 +206,9 @@ require("packer").startup({
 			"ellisonleao/glow.nvim",
 			config = get_setup("glow"),
 		})
+		--
+		-- Simple todo
+		use("vitalk/vim-simple-todo")
 
 		----------------------------------------
 		-- TREESITTER

@@ -49,6 +49,7 @@ require("gitsigns").setup({
 	},
 
 	on_attach = function(bufnr)
+		local wk = require("which-key")
 		local gs = package.loaded.gitsigns
 
 		local function map(mode, l, r, opts)
@@ -79,23 +80,45 @@ require("gitsigns").setup({
 		end, { expr = true, desc = "Git: previous hunk" })
 
 		-- Actions
-		map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
-		map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
-		map("n", "<leader>gS", gs.stage_buffer, { desc = "Stage buffer" })
-		map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
-		map("n", "<leader>gR", gs.reset_buffer, { desc = "Reset buffer" })
-		map("n", "<leader>gp", gs.preview_hunk, { desc = "Preview hunk" })
-		map("n", "<leader>gB", function()
-			gs.blame_line({ full = true })
-		end, { desc = "Blame line" })
-		map("n", "<leader>gtb", gs.toggle_current_line_blame, { desc = "Toggle blame"})
-		map("n", "<leader>gd", gs.diffthis, { desc = "diff"})
-		map("n", "<leader>gD", function()
-			gs.diffthis("~")
-		end, { desc = "diff~"})
-		map("n", "<leader>gtd", gs.toggle_deleted, { desc = "Toggle deleted"})
-
-		-- Text object
-		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select hunk"})
+		wk.register({
+			mode = { "n", "v" },
+			["<leader>gh"] = {
+				name = "Hunk",
+				s = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
+				r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk" },
+			},
+		})
+		wk.register({
+			["<leader>g"] = {
+				h = {
+					u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo stage hunk" },
+					p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview hunk" },
+				},
+				S = { "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer" },
+				R = { "<cmd>Gitsigns reset_buffer<cr>", "Reser buffer" },
+				B = {
+					function()
+						gs.blame_line({ full = true })
+					end,
+					"Blame line",
+				},
+				t = {
+					name = "toggle",
+					b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle blame" },
+					d = { "<cmd>Gitsigns toggle_deleted<cr>", "Toggle deleted" },
+				},
+				d = { "<cmd>Gitsigns diffthis<cr>", "diff" },
+				D = {
+					function()
+						gs.diffthis("~")
+					end,
+					"diff~",
+				},
+			},
+		})
+		wk.register({
+			mode = { "o", "x" },
+			ih = { ":<C-U>Gitsigns select_hunk<cr>", "Select hunk" },
+		})
 	end,
 })
