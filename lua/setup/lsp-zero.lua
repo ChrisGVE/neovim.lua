@@ -133,7 +133,7 @@ lsp.setup_nvim_cmp({
 	formatting = cmp_formatting,
 	sources = cmp_sources,
 	filetype = cmp_filetype,
- 	cmdline = cmp_cmdline,
+	cmdline = cmp_cmdline,
 })
 
 local wk = require("which-key")
@@ -141,17 +141,63 @@ local wk = require("which-key")
 lsp.on_attach(function(client, bufnr)
 	wk.register({
 		buffer = bufnr,
+		["<leader>c"] = {
+			name = "code",
+			l = { "<cmd>Telescope diagnostics<cr>", "List of diagnostics" },
+			r = { "<cmd>Telescope lsp_references<cr>", "References" },
+			i = { "<cmd>Telescope lsp_implementations<cr>", "Goto the implementation" },
+			d = { "<cmd>Telescope lsp_definitions<cr>", "Goto definition" },
+			t = {
+				"<cmd>Telescope lsp_type_definitions<cr>",
+				"Goto type definition",
+			},
+			S = {
+				"<cmd>Telescope lsp_document_symbols<cr>",
+				"Document symbols in current buffer",
+			},
+			f = { "<cmd>Format<cr>", "Code formatter" },
+			K = {
+				function()
+					vim.lsp.buf.hover()
+				end,
+				"Hover",
+			},
+			s = {
+				function()
+					vim.lsp.buf.workspace_symbol()
+				end,
+				"Workspace symbols",
+			},
+			a = {
+				function()
+					vim.lsp.buf.code_action()
+				end,
+				"Code action",
+			},
+			["vd"] = {
+				function()
+					vim.diagnostic.open_float()
+				end,
+				"View diagnostics",
+			},
+			["rr"] = {
+				function()
+					vim.lsp.buf.references()
+				end,
+				"References",
+			},
+			["rn"] = {
+				function()
+					vim.lsp.buf.rename()
+				end,
+				"Rename",
+			},
+		},
 		gd = {
 			function()
 				vim.lsp.buf.definition()
 			end,
 			"Goto definition",
-		},
-		K = {
-			function()
-				vim.lsp.buf.hover()
-			end,
-			"Hover",
 		},
 		["[d"] = {
 			function()
@@ -164,36 +210,6 @@ lsp.on_attach(function(client, bufnr)
 				vim.diagnostic.goto_next()
 			end,
 			"Goto next diagnostics",
-		},
-		["<leader>cs"] = {
-			function()
-				vim.lsp.buf.workspace_symbol()
-			end,
-			"Workspace symbols",
-		},
-		["<leader>cvd"] = {
-			function()
-				vim.diagnostic.open_float()
-			end,
-			"View diagnostics",
-		},
-		["<leader>ca"] = {
-			function()
-				vim.lsp.buf.code_action()
-			end,
-			"Code action",
-		},
-		["<leader>crr"] = {
-			function()
-				vim.lsp.buf.references()
-			end,
-			"References",
-		},
-		["<leader>crn"] = {
-			function()
-				vim.lsp.buf.rename()
-			end,
-			"Rename",
 		},
 	})
 	wk.register({

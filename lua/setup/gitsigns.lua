@@ -52,43 +52,34 @@ require("gitsigns").setup({
 		local wk = require("which-key")
 		local gs = package.loaded.gitsigns
 
-		local function map(mode, l, r, opts)
-			opts = opts or {}
-			opts.buffer = bufnr
-			vim.keymap.set(mode, l, r, opts)
-		end
-
-		-- Navigation
-		map("n", "]c", function()
-			if vim.wo.diff then
-				return "]c"
-			end
-			vim.schedule(function()
-				gs.next_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true, desc = "Git: next hunk" })
-
-		map("n", "[c", function()
-			if vim.wo.diff then
-				return "[c"
-			end
-			vim.schedule(function()
-				gs.prev_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true, desc = "Git: previous hunk" })
-
 		-- Actions
 		wk.register({
-			mode = { "n", "v" },
-			["<leader>gh"] = {
-				name = "Hunk",
-				s = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
-				r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk" },
+			mode = "n",
+			buffer = bufnr,
+			["]c"] = {
+				function()
+					if vim.wo.diff then
+						return "]c"
+					end
+					vim.schedule(function()
+						gs.next_hunk()
+					end)
+					return "<Ignore>"
+				end,
+				"Git: next hunk",
 			},
-		})
-		wk.register({
+			["[c"] = {
+				function()
+					if vim.wo.diff then
+						return "[c"
+					end
+					vim.schedule(function()
+						gs.prev_hunk()
+					end)
+					return "<Ignore>"
+				end,
+				"Git: previous hunk",
+			},
 			["<leader>g"] = {
 				h = {
 					u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo stage hunk" },
@@ -115,8 +106,16 @@ require("gitsigns").setup({
 					"diff~",
 				},
 			},
-		})
-		wk.register({
+		}, {
+			buffer = bufnr,
+			mode = { "n", "v" },
+			["<leader>gh"] = {
+				name = "Hunk",
+				s = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
+				r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk" },
+			},
+		}, {
+			buffer = bufnr,
 			mode = { "o", "x" },
 			ih = { ":<C-U>Gitsigns select_hunk<cr>", "Select hunk" },
 		})
