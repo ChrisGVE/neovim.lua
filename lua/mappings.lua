@@ -48,7 +48,7 @@ wk.register({
     },
     --     ['<C-s>'] = { function() ui.nav_file(4) end, "Navigate to harpoon file 4" },
     ["zn"] = { "<cmd>ZenMode<cr>", "Toggle Zen mode" },
-    ["<C-\\>"] = { ":<C-U>TmuxNavigatePrevious", "Go to the previous pane" }
+    ["<C-\\>"] = { ":<C-U>TmuxNavigatePrevious<cr>", "Go to the previous pane" }
 })
 
 -- Visual mode simple shortcuts
