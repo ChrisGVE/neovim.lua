@@ -229,6 +229,8 @@ require("packer").startup({
         --     use('nvim-treesitter/nvim-treesitter-textobjects')
         --
         -- Treesitter
+        -- Install this plugin to prevent conflict when installing TS
+        use("p00f/nvim-ts-rainbow")
         use({
             "nvim-treesitter/nvim-treesitter",
             requires = {
