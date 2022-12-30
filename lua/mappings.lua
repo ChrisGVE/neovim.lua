@@ -5,11 +5,13 @@
 -- Leader key
 vim.g.mapleader = "\\"
 
+-- tmux remapping
+vim.g.tmux_navigator_no_mappings = 1
+
 -- Registering to WhichKey
 local wk = require("which-key")
 
 local telescope = require("telescope.builtin")
-local telescope_ext = require("telescope").extensions
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
@@ -46,6 +48,7 @@ wk.register({
     },
     --     ['<C-s>'] = { function() ui.nav_file(4) end, "Navigate to harpoon file 4" },
     ["zn"] = { "<cmd>ZenMode<cr>", "Toggle Zen mode" },
+    ["<C-\\>"] = { ":<C-U>TmuxNavigatePrevious", "Go to the previous pane" }
 })
 
 -- Visual mode simple shortcuts
@@ -203,6 +206,16 @@ wk.register({
     },
 })
 
+-- Window
+wk.register({
+    ["<C-w>"] = {
+        name = "window",
+        h = { ":<C-U>TmuxNavigateLeft<cr>", "Go to the left window" },
+        j = { ":<C-U>TmuxNavigateDown<cr>", "Go to the down window" },
+        k = { ":<C-U>TmuxNavigateUp<cr>", "Go to the up window" },
+        l = { ":<C-U>TmuxNavigateRight<>", "Go to the right window" }
+    }
+})
 -- The primeagen mappings
 
 -- vim.keymap.set("n", "n", "nzzzv")

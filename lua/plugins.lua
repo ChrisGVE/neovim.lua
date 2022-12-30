@@ -54,6 +54,8 @@ require("packer").startup({
             "rcarriga/nvim-notify",
             config = get_setup("nvim-notify"),
         })
+        -- tmux integration
+        use({ "christoomey/vim-tmux-navigator" })
 
         ----------------------------------------
         -- INTERFACE
