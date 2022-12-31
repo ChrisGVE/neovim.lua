@@ -251,7 +251,10 @@ require("packer").startup({
         })
         --
         -- Mason
-        use({ "williamboman/mason.nvim", config = get_setup("mason") })
+        use({
+            "williamboman/mason.nvim",
+            config = get_setup("mason")
+        })
         --
         -- LSP-Zero
         use({
