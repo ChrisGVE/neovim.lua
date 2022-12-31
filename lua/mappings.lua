@@ -168,13 +168,22 @@ wk.register({
 wk.register({
     ["<leader>g"] = {
         name = "git",
-        b = { "<cmd>Telescope git_bcommits<cr>", "Buffer's commits" },
-        c = { "<cmd>Telescope git_commits<cr>", "Project's commits" },
-        s = { "<cmd>Telescope git_status<cr>", "Status" },
+        B = { "<cmd>Telescope git_bcommits<cr>", "Buffer's commits" },
+        C = { "<cmd>Telescope git_commits<cr>", "Project's commits" },
+        S = { "<cmd>Telescope git_status<cr>", "Status" },
         h = { "<cmd>Telescope git_stash<cr>", "Stash" },
-        r = { "<cmd>Telescope git_branches<cr>", "Projects' branches" },
+        R = { "<cmd>Telescope git_branches<cr>", "Projects' branches" },
         f = { "<cmd>Telescope git_files<cr>", "Projects' files" },
         g = { vim.cmd.Git, "Fugitive" },
+        p = { "<cmd>Git push<cr>", "Git push"},
+        c = { "<cmd>Git commit<cr>", "Git commit" },
+        l = { "<cmd>Git pull<cr>", "Git pull" },
+        r = { "<cmd>Git rebase -i<cr>", "Git rebase"},
+        d = { "<cmd>Git diff<cr>", "Git diff" },
+        L = { "<cmd>Git log<cr>", "Git log"},
+        m = { "<cmd>Git merge<cr>", "Git merge"},
+        b = { "<cmd>Git blame<cr>", "Git blame"},
+        s = { "<cmd>Gvdiffsplit<cr>", "Git diff split"}
     },
 })
 
