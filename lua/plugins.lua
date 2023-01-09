@@ -79,6 +79,7 @@ require("packer").startup({
         -- Bufferline
         use({
             "akinsho/bufferline.nvim",
+            after = "catppuccin",
             requires = "kyazdani42/nvim-web-devicons",
             config = get_setup("bufferline"),
         })
