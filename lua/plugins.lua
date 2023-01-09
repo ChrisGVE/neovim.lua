@@ -79,6 +79,7 @@ require("packer").startup({
         -- Bufferline
         use({
             "akinsho/bufferline.nvim",
+            after = "catppuccin",
             requires = "kyazdani42/nvim-web-devicons",
             config = get_setup("bufferline"),
         })
@@ -334,6 +335,12 @@ require("packer").startup({
             run = function()
                 vim.fn["firenvim#install"](0)
             end,
+        })
+        -- 
+        -- Obsidian.nvim
+        use({
+            "epwalsh/obsidian.nvim",
+            config = get_setup("obsidian"),
         })
 
         ----------------------------------------
