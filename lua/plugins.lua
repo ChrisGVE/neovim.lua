@@ -64,10 +64,17 @@ require("packer").startup({
         -- Dracula
         use({
             "Mofiqul/dracula.nvim",
-            config = function()
-                vim.cmd([[ colorscheme dracula ]])
-            end,
+            -- config = function()
+            --     vim.cmd([[ colorscheme dracula ]])
+            -- end,
         })
+        --
+        -- 
+        use{
+            'catppuccin/nvim',
+            as = 'catppuccin',
+            config = get_setup('catppuccin'),
+        }
         --
         -- Bufferline
         use({
