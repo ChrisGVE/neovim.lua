@@ -219,6 +219,9 @@ require("packer").startup({
         --
         -- Simple todo
         use("vitalk/vim-simple-todo")
+        -- 
+        -- Table mode
+        use("dhruvasagar/vim-table-mode")
 
         ----------------------------------------
         -- TREESITTER
