@@ -16,6 +16,7 @@ lsp.ensure_installed({
 	"lemminx",
 	"sqlls", -- alternative: sqls
 	"rust_analyzer",
+    "rls",
 	"pyright", -- alternative: sourcery, pylsp, ruff_lsp
 	"esbonio", -- This is for Sphinx
 	"texlab", -- alternative: ltex
