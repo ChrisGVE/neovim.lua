@@ -147,10 +147,18 @@ wk.register({
 	["<leader>m"] = {
 		name = "markdown",
 		v = { "<cmd>Glow<cr>", "View markdown" },
-        t = { "<cmd>TableModeToggle<cr>", "Table mode toggle" },
         T = { "<cmd>Tableize<cr>", "Format a table" },
 	},
 })
+
+wk.register({
+    mode = { "n", "i" },
+	["<leader>m"] = {
+		name = "markdown",
+        t = { "<cmd>TableModeToggle<cr>", "Table mode toggle" },
+	},
+})
+
 vim.g.simple_todo_map_keys = 0
 wk.register({
 	mode = { "n", "i", "v" },
