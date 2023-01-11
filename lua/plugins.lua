@@ -134,6 +134,10 @@ require("packer").startup({
             "folke/twilight.nvim",
             config = get_setup("twilight"),
         })
+        use({
+            "kazhala/close-buffers.nvim",
+            config = get_setup("close-buffers"),
+        })
 
         ----------------------------------------
         -- GIT SUPPORT
@@ -222,6 +226,12 @@ require("packer").startup({
         -- 
         -- Table mode
         use("dhruvasagar/vim-table-mode")
+        -- 
+        -- Obsidian.nvim
+        use({
+            "epwalsh/obsidian.nvim",
+            config = get_setup("obsidian"),
+        })
 
         ----------------------------------------
         -- TREESITTER
@@ -338,12 +348,6 @@ require("packer").startup({
             run = function()
                 vim.fn["firenvim#install"](0)
             end,
-        })
-        -- 
-        -- Obsidian.nvim
-        use({
-            "epwalsh/obsidian.nvim",
-            config = get_setup("obsidian"),
         })
 
         ----------------------------------------
