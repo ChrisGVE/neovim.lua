@@ -1,7 +1,5 @@
 local lsp = require("lsp-zero")
 
-lsp.preset("recommended")
-
 lsp.ensure_installed({
 	"sumneko_lua",
 	"clangd",
@@ -26,6 +24,23 @@ lsp.ensure_installed({
 	"vimls",
 	"prosemd_lsp", -- Markdown proof reading
 	"stylelint_lsp", -- Experimental
+})
+
+-- lsp.preset("recommended")
+lsp.set_preferences({
+  suggest_lsp_servers = true,
+  setup_servers_on_start = true,
+  set_lsp_keymaps = false,
+  configure_diagnostics = true,
+  cmp_capabilities = true,
+  manage_nvim_cmp = true,
+  call_servers = 'local',
+  sign_icons = {
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = ''
+  }
 })
 
 lsp.configure("sumneko_lua", {
@@ -155,8 +170,8 @@ lsp.on_attach(function(client, bufnr)
 		buffer = bufnr,
 		["<leader>c"] = {
 			name = "code",
-			-- f = { "<cmd>LspZeroFormat<cr>", "Code formatter" },
-			f = { "<cmd>Format<cr>", "Code formatter" },
+			f = { "<cmd>LspZeroFormat<cr>", "Code formatter" },
+			-- f = { "<cmd>Format<cr>", "Code formatter" },
 			l = { "<cmd>Telescope diagnostics<cr>", "List of diagnostics" },
 			r = { "<cmd>Telescope lsp_references<cr>", "References" },
 			i = { "<cmd>Telescope lsp_implementations<cr>", "Goto the implementation" },
@@ -230,11 +245,15 @@ lsp.on_attach(function(client, bufnr)
 			end,
 			"Goto next diagnostics",
 		},
+        ["<C-i>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "LSP signature help" },
+        K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "LSP hover" },
+        ["<C-r>"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Buffer rename" },
+        ["<C-a>"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "LSP code action" },
 	})
 	wk.register({
 		mode = "i",
 		buffer = bufnr,
-		["<C-h>"] = {
+		["<C-i>"] = {
 			function()
 				vim.lsp.buf.signature_help()
 			end,

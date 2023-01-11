@@ -28,13 +28,13 @@ wk.register({
 	["<leader>2"] = { ":bn<cr>", "Next buffer" },
 	["<leader>n"] = { vim.cmd.NvimTreeToggle, "Navigation tree toggle" },
 	["<leader>t"] = { vim.cmd.ToggleTerm, "Terminal toggle" },
-	["<C-h>"] = {
+	["<C-t>"] = {
 		function()
 			ui.nav_file(1)
 		end,
 		"Navigate to harpoon file 1",
 	},
-	["<C-t>"] = {
+	["<C-y>"] = {
 		function()
 			ui.nav_file(2)
 		end,
@@ -48,7 +48,11 @@ wk.register({
 	},
 	--     ['<C-s>'] = { function() ui.nav_file(4) end, "Navigate to harpoon file 4" },
 	["zn"] = { "<cmd>ZenMode<cr>", "Toggle Zen mode" },
-	["<C-\\>"] = { ":<C-U>TmuxNavigatePrevious<cr>", "Go to the previous pane" },
+	["<C-\\>"] = { "<cmd>TmuxNavigatePrevious<cr>", "Go to the previous pane" },
+    ["<C-h>"] = { "<cmd>TmuxNavigateLeft<cr>", "Got to the left pane" },
+    ["<C-j>"] = { "<cmd>TmuxNavigateDown<cr>", "Got to the down pane" },
+    ["<C-k>"] = { "<cmd>TmuxNavigateUp<cr>", "Got to the up pane" },
+    ["<C-l>"] = { "<cmd>TmuxNavigateRigth<cr>", "Got to the right pane" },
 })
 
 -- Visual mode simple shortcuts
