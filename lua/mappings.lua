@@ -134,13 +134,23 @@ wk.register({
 wk.register({
     ["<leader>e"] = {
         name = "edit",
-        s = {
-            function()
-                telescope.symbols({ sources = { "emoji", "kaomoji", "gitmoji" } })
-            end,
-            "Insert symbol",
-        },
+        y = { "<cmd>lua telescope.symbols({ sources = { 'emoji', 'kaomoji', 'gitmoji' } })<cr>",
+            "Insert symbol", },
         u = { vim.cmd.UndotreeToggle, "Undo tree toggle" },
+        S = { "<cmd>lua require('spectre').open()<cr>", "Open spectre" },
+        s = {
+            name = "spectre",
+            w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Search current word" },
+            p = { "<cmd>lua require('spectre').open_file_search()<cr>", "Search in current file" },
+        }
+    },
+})
+
+wk.register({
+    mode = "v",
+    ["<leader>e"] = {
+        name = "edit",
+        s = { "<cmd>lua require('spectre').open_visual()<cr>", "Open spectre visual" },
     },
 })
 

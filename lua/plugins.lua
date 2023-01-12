@@ -219,6 +219,12 @@ require("packer").startup({
             "numToStr/Comment.nvim",
             config = get_setup("comment"),
         })
+        -- 
+        -- nvim-spectre
+        use({
+            "windwp/nvim-spectre",
+            require = "nvim-lua/plenary.nvim",
+        }) 
 
         ----------------------------------------
         -- MARKDOWN SUPPORT
