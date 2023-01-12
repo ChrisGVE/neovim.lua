@@ -70,7 +70,7 @@ require("packer").startup({
         })
         --
         -- Catppuccin
-        use{
+        use {
             'catppuccin/nvim',
             as = 'catppuccin',
             config = get_setup('catppuccin'),
@@ -134,13 +134,13 @@ require("packer").startup({
             "folke/twilight.nvim",
             config = get_setup("twilight"),
         })
-        -- 
+        --
         -- Close buffers
         use({
             "kazhala/close-buffers.nvim",
             config = get_setup("close-buffers"),
         })
-        -- 
+        --
         -- TODO comments
         use({
             "folke/todo-comments.nvim",
@@ -219,12 +219,12 @@ require("packer").startup({
             "numToStr/Comment.nvim",
             config = get_setup("comment"),
         })
-        -- 
-        -- nvim-spectre
+        --
+        -- nvim-spectre 
         use({
             "windwp/nvim-spectre",
             require = "nvim-lua/plenary.nvim",
-        }) 
+        })
 
         ----------------------------------------
         -- MARKDOWN SUPPORT
@@ -238,10 +238,10 @@ require("packer").startup({
         --
         -- Simple todo
         use("vitalk/vim-simple-todo")
-        -- 
+        --
         -- Table mode
         use("dhruvasagar/vim-table-mode")
-        -- 
+        --
         -- Obsidian.nvim
         use({
             "epwalsh/obsidian.nvim",

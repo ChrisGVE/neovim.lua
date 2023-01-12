@@ -48,11 +48,15 @@ wk.register({
     },
     --     ['<C-s>'] = { function() ui.nav_file(4) end, "Navigate to harpoon file 4" },
     ["zn"] = { "<cmd>ZenMode<cr>", "Toggle Zen mode" },
+    -- Navigation with Tmux
     ["<C-\\>"] = { "<cmd>TmuxNavigatePrevious<cr>", "Go to the previous pane" },
     ["<C-h>"] = { "<cmd>TmuxNavigateLeft<cr>", "Got to the left pane" },
     ["<C-j>"] = { "<cmd>TmuxNavigateDown<cr>", "Got to the down pane" },
     ["<C-k>"] = { "<cmd>TmuxNavigateUp<cr>", "Got to the up pane" },
     ["<C-l>"] = { "<cmd>TmuxNavigateRight<cr>", "Got to the right pane" },
+    -- todo-comments
+    ["]t"] = { "<cmd>lua require('todo-comments').jump_next()<cr>", "Next TODO comment" },
+    ["[t"] = { "<cmd>lua require('todo-comments').jump_prev()<cr>", "Previous TODO comment" },
 })
 
 -- Visual mode simple shortcuts
@@ -266,6 +270,14 @@ wk.register({
     ["<leader>c"] = {
         name = "code",
         C = { "<cmd>Mason<cr>", "Open mason" },
+    },
+})
+
+-- Project
+wk.register({
+    ["<leader>p"] = {
+        name = "project",
+        t = { "<cmd>TodoTelescope<cr>", "Project todos" },
     },
 })
 
