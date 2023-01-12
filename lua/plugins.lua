@@ -69,7 +69,7 @@ require("packer").startup({
             -- end,
         })
         --
-        -- 
+        -- Catppuccin
         use{
             'catppuccin/nvim',
             as = 'catppuccin',
@@ -134,9 +134,18 @@ require("packer").startup({
             "folke/twilight.nvim",
             config = get_setup("twilight"),
         })
+        -- 
+        -- Close buffers
         use({
             "kazhala/close-buffers.nvim",
             config = get_setup("close-buffers"),
+        })
+        -- 
+        -- TODO comments
+        use({
+            "folke/todo-comments.nvim",
+            requires = "nvim-lua/plenary.nvim",
+            config = get_setup("todo-comments"),
         })
 
         ----------------------------------------
