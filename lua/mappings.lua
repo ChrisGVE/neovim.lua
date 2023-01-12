@@ -57,6 +57,8 @@ wk.register({
     -- todo-comments
     ["]t"] = { "<cmd>lua require('todo-comments').jump_next()<cr>", "Next TODO comment" },
     ["[t"] = { "<cmd>lua require('todo-comments').jump_prev()<cr>", "Previous TODO comment" },
+    -- Trouble
+    ["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", "Trouble LSP references" },
 })
 
 -- Visual mode simple shortcuts
@@ -278,6 +280,11 @@ wk.register({
     ["<leader>p"] = {
         name = "project",
         t = { "<cmd>TodoTelescope<cr>", "Project todos" },
+        x = { "<cmd>TroubleToggle<cr>", "Toggle trouble" },
+        w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics" },
+        d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics" },
+        q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+        l = { "<cmd>TroubleToggle loclist<cr>", "Trouble location list" },
     },
 })
 

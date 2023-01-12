@@ -3,8 +3,15 @@
 ----------------------------------------
 
 local telescope = require('telescope')
+local trouble = require('trouble.providers.telescope')
 
 telescope.setup {
+    defaults = {
+        mappings = {
+            i = { ["<C-t>"] = trouble.open_with_trouble },
+            n = { ["<C-t>"] = trouble.open_with_trouble },
+        },
+    },
     extensions = {
         fzf = {
             fuzzy = true,                       -- false will only do exact matching
@@ -18,10 +25,6 @@ telescope.setup {
             minimum_files_characters = 2,
             use_highlighter = true,
         },
---         fzy_native = {
---             override_generic_sorter = false,
---             override_file_sorter = true,
---         },
         frecency = {
             db_root = vim.fn.stdpath('data') .. '/databases/',
             show_scores = true,

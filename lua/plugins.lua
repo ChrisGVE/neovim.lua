@@ -147,6 +147,13 @@ require("packer").startup({
             requires = "nvim-lua/plenary.nvim",
             config = get_setup("todo-comments"),
         })
+        -- 
+        -- Trouble
+        use({
+            "folke/trouble.nvim",
+            requires = "kyazdani42/nvim-web-devicons",
+            config = get_setup("trouble"),
+        })
 
         ----------------------------------------
         -- GIT SUPPORT
