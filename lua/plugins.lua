@@ -35,7 +35,7 @@ require("packer").startup({
         ----------------------------------------
         --
         -- Packer can manage itself
-        use("wbthomason/packer.nvim")
+        use({ "wbthomason/packer.nvim" })
         --
         -- Remember: open at the last position
         use({
@@ -147,7 +147,7 @@ require("packer").startup({
             requires = "nvim-lua/plenary.nvim",
             config = get_setup("todo-comments"),
         })
-        -- 
+        --
         -- Trouble
         use({
             "folke/trouble.nvim",
@@ -227,7 +227,7 @@ require("packer").startup({
             config = get_setup("comment"),
         })
         --
-        -- nvim-spectre 
+        -- nvim-spectre
         use({
             "windwp/nvim-spectre",
             require = "nvim-lua/plenary.nvim",

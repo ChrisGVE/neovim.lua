@@ -59,6 +59,8 @@ wk.register({
     ["[t"] = { "<cmd>lua require('todo-comments').jump_prev()<cr>", "Previous TODO comment" },
     -- Trouble
     ["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", "Trouble LSP references" },
+    -- Undo tree
+    U = { vim.cmd.UndotreeToggle, "Undo tree toggle" },
 })
 
 -- Visual mode simple shortcuts
@@ -231,18 +233,18 @@ wk.register({
     },
 })
 -- Mapping ObsidianFollowLink to gf with passtrough
-wk.register({
-    gf = {
-        function()
-            if require("obsidian").util.cursor_on_markdown_link() then
-                return "<cmd>ObsidianFollowLink<cr>"
-            else
-                return "gf"
-            end
-        end,
-        "Go to file under cursor or follow Obsidian link",
-    },
-})
+-- wk.register({
+--     gf = {
+--         function()
+--             if require("obsidian").util.cursor_on_markdown_link() then
+--                 return "<cmd>ObsidianFollowLink<cr>"
+--             else
+--                 return "gf"
+--             end
+--         end,
+--         "Go to file under cursor or follow Obsidian link",
+--     },
+-- })
 
 -- Git
 wk.register({

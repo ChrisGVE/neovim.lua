@@ -14,7 +14,6 @@ lsp.ensure_installed({
     "lemminx",
     "sqlls", -- alternative: sqls
     "rust_analyzer",
-    "rls",
     "pyright", -- alternative: sourcery, pylsp, ruff_lsp
     "esbonio", -- This is for Sphinx
     "texlab", -- alternative: ltex
@@ -275,7 +274,7 @@ lsp.on_attach(function(client, bufnr)
             end,
             "LSP hover"
         },
-        ["<C-r>"] = {
+        R = {
             function()
                 vim.lsp.buf.rename()
             end,
