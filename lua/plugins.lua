@@ -138,6 +138,12 @@ require("packer").startup({
 			"folke/twilight.nvim",
 			config = get_setup("twilight"),
 		})
+        -- 
+        -- Leap plugin
+        use({
+            "ggandor/leap.nvim",
+            config = get_setup("leap"),
+        })
 		--
 		-- Close buffers
 		use({
