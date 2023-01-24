@@ -63,11 +63,11 @@ wk.register({
     U = { vim.cmd.UndotreeToggle, "Undo tree toggle" },
 })
 
-wk.register({
-    mode = { "n", "v" },
-    s = { "<Plug>(leap-forward-to)", "Leap forward to" },
-    S = { "<Plug>(leap-backward-to)", "Leap backward to" },
-})
+-- wk.register({
+--     mode = { "n", "v" },
+--     s = { "<Plug>(leap-forward-to)", "Leap forward to" },
+--     S = { "<Plug>(leap-backward-to)", "Leap backward to" },
+-- })
 
 -- Visual mode simple shortcuts
 wk.register({
