@@ -21,6 +21,8 @@ wk.register({
     J = { "mzJ`z", "Join line + cursor fixed" },
     ["<C-d>"] = { "<C-d>zz", "Half down, line middle" },
     ["<C-u>"] = { "<C-u>zz", "Half up, line middle " },
+    ["<C-f>"] = { "<C-f>zz", "Page down, line middle" },
+    ["<C-b>"] = { "<C-b>zz", "Page up, line middle" },
     ["<S-cr>"] = { "O<esc>", "Insert blank line above" },
     ["<cr>"] = { "o<esc>", "Insert blank line below" },
     ["//"] = { ":noh<cr>", "Clear search results" },
