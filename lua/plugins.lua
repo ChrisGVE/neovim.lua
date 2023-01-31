@@ -165,6 +165,12 @@ require("packer").startup({
 			requires = "kyazdani42/nvim-web-devicons",
 			config = get_setup("trouble"),
 		})
+        -- 
+        -- Smooth cursor
+        use({
+            "gen740/SmoothCursor.nvim",
+            config = get_setup("smoothcursor")
+        })
 
 		----------------------------------------
 		-- GIT SUPPORT
