@@ -70,9 +70,6 @@ vim.opt.spellsuggest = "best,9" -- Show nine spell checking candidates at most
 ----------------------------------------------------
 -- Open for [No Name] Buffers
 local function open_nvim_tree(data)
-    -- buffer is a real file on the disk
-    local real_file = vim.fn.filereadable(data.file) == 1
-
     -- buffer is a [No Name]
     local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 

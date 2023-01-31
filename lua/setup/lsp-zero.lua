@@ -274,7 +274,7 @@ lsp.on_attach(function(client, bufnr)
             end,
             "LSP hover"
         },
-        ["<leader>br"] = {
+        ["<f2>"] = {
             function()
                 vim.lsp.buf.rename()
             end,
