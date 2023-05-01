@@ -1,7 +1,7 @@
 local lsp = require("lsp-zero")
 
 lsp.ensure_installed({
-    "sumneko_lua",
+    "lua_ls",
     "clangd",
     "cmake", -- alternative: neocmake
     "diagnosticls",
